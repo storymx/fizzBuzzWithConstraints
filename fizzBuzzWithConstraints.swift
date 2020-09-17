@@ -1,26 +1,27 @@
-func fizzBuzz(n: Int) {
-    if n < 1 {
-        print("0")
-        return
+func fizzBuzz(n: Int) -> [String]{
+    let upperLimit = 2 * Int(pow(Double(10), Double(4)))
+    if n < 1 || n > upperLimit {
+        return []
     }
 
     var i = 1
-    let upperLimit = 2 * Int(pow(Double(10), Double(5)))
-
-    while i <= upperLimit {
+    var result = [String]()
+    while i <= n {
 
         if (i % 3) == 0 && (i % 5) == 0 {
-            print("FizzBuzz")
+            result.append("FizzBuzz")
         } else if (i % 5) == 0 {
-            print("Buzz")
+            result.append("Buzz")
         } else if (i % 3) == 0 {
-            print("Fizz")
+            result.append("Fizz")
         } else {
-            print(i)
+            result.append("\(i)")
         }
 
         i = i + 1
     }
+
+    return result
 }
 
-fizzBuzz(n: 30000)
+fizzBuzz(n: 15)
